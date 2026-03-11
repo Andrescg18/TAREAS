@@ -1,5 +1,7 @@
 <div class="tarea">
 
+<img [src]="'/user-' + tarea.id + '.jpg'" class="avatar">
+
 <input type="checkbox" [(ngModel)]="tarea.completado">
 
 <p [class.hecha]="tarea.completado">

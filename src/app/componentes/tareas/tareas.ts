@@ -6,7 +6,7 @@ import { Usuario } from '../usuario/usuario';
 @Component({
   selector: 'app-tareas',
   standalone: true,
-  imports: [CommonModule, Tarea, Usuario],
+  imports: [CommonModule, Usuario],
   templateUrl: './tareas.html',
   styleUrl: './tareas.css'
 })
