@@ -1,34 +1,42 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Tarea } from '../tarea/tarea';
+import { Usuario } from '../usuario/usuario';
 
 @Component({
-selector:'app-tareas',
-standalone:true,
-imports:[Tarea],
-templateUrl:'./tareas.html',
-styleUrl:'./tareas.css'
+  selector: 'app-tareas',
+  standalone: true,
+  imports: [CommonModule, Tarea, Usuario],
+  templateUrl: './tareas.html',
+  styleUrl: './tareas.css'
 })
 
-export class Tareas{
+export class Tareas {
 
-@Input() tareas:any[] = [];
+  @Input() tareas: any[] = [];
+  @Input() usuarios: any[] = [];
 
-agregarTarea(titulo:string){
+  usuarioSeleccionadoId = '';
 
-if(titulo.trim() === '') return;
+  seleccionarUsuario(id: string) {
+    this.usuarioSeleccionadoId = id;
+  }
 
-this.tareas.push({
-id:Date.now().toString(),
-titulo:titulo,
-completado:false
-});
+  agregarTarea(titulo: string) {
 
-}
+    if (titulo.trim() === '') return;
 
-eliminarTarea(id:string){
+    this.tareas.push({
+      id: Date.now().toString(),
+      titulo: titulo,
+      fecha: new Date(),
+      completado: false
+    });
 
-this.tareas = this.tareas.filter(t => t.id !== id);
+  }
 
-}
+  eliminarTarea(id: string) {
+    this.tareas = this.tareas.filter(t => t.id !== id);
+  }
 
 }

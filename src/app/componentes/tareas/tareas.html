@@ -1,3 +1,15 @@
+<div class="usuarios">
+
+<app-usuario
+*ngFor="let usuario of usuarios"
+[usuario]="usuario"
+[seleccionado]="usuario.id === usuarioSeleccionadoId"
+(seleccionar)="seleccionarUsuario($event)">
+</app-usuario>
+
+</div>
+
+
 <div class="agregar">
 
 <input type="text" #nuevaTarea placeholder="Nueva tarea">
@@ -8,14 +20,30 @@ Agregar
 
 </div>
 
+
 <div class="tareas">
 
 @for (tarea of tareas; track tarea.id){
 
-<app-tarea 
-[tarea]="tarea"
-(eliminar)="eliminarTarea($event)">
-</app-tarea>
+<div class="tarea-card">
+
+<div class="contenido">
+
+<span class="titulo">
+{{ tarea.titulo }}
+</span>
+
+<span class="fecha">
+{{ tarea.fecha | date:'short' }}
+</span>
+
+</div>
+
+<button (click)="eliminarTarea(tarea.id)">
+Eliminar
+</button>
+
+</div>
 
 }
 
