@@ -1,16 +1,18 @@
 {
-  "name": "tareas",
+  "name": "gestor-tareas",
   "version": "0.0.0",
   "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test",
-    "serve:ssr:tareas": "node dist/tareas/server/server.mjs"
-  },
+  "ng": "ng",
+  "start": "ng serve",
+  "build": "ng build",
+  "build:prod": "ng build --configuration production",
+  "deploy": "ng build --configuration production --base-href=/TAREAS/ && npx angular-cli-ghpages --dir=dist/gestor-tareas/browser",
+  "watch": "ng build --watch --configuration development",
+  "test": "ng test",
+  "serve:ssr:gestor-tareas": "node dist/gestor-tareas/server/server.mjs"
+},
   "private": true,
-  "packageManager": "npm@11.9.0",
+  "packageManager": "npm@11.6.2",
   "dependencies": {
     "@angular/common": "^21.2.0",
     "@angular/compiler": "^21.2.0",
@@ -19,15 +21,14 @@
     "@angular/platform-browser": "^21.2.0",
     "@angular/platform-server": "^21.2.0",
     "@angular/router": "^21.2.0",
-    "@angular/ssr": "^21.2.0",
-    "bootstrap": "^5.3.8",
+    "@angular/ssr": "^21.2.1",
     "express": "^5.1.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@angular/build": "^21.2.0",
-    "@angular/cli": "^21.2.0",
+    "@angular/build": "^21.2.1",
+    "@angular/cli": "^21.2.1",
     "@angular/compiler-cli": "^21.2.0",
     "@types/express": "^5.0.1",
     "@types/node": "^20.17.19",

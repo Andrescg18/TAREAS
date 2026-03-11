@@ -1,30 +1,23 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from './shared/header/header';
-import { CommonModule } from '@angular/common';
-
-interface Usuario {
-  nombre: string;
-  avatar: string;
-}
+import { Usuario } from './componentes/usuario/usuario';
+import { Tareas } from './componentes/tareas/tareas';
+import { USUARIOS_FALSOS } from './usuarios-falsos';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [HeaderComponent, CommonModule],
+  imports: [Usuario, Tareas],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
-  usuarios: Usuario[] = [
-    { nombre: 'Antonia Céspedes', avatar: 'https://i.pravatar.cc/100?img=1' },
-    { nombre: 'Emilia Torres', avatar: 'https://i.pravatar.cc/100?img=5' },
-    { nombre: 'Marcos Jeremías', avatar: 'https://i.pravatar.cc/100?img=3' },
-    { nombre: 'David Mercado', avatar: 'https://i.pravatar.cc/100?img=8' }
-  ];
 
-  usuarioSeleccionado?: Usuario;
+  usuarios = USUARIOS_FALSOS;
 
-  seleccionarUsuario(user: Usuario) {
-    this.usuarioSeleccionado = user;
+  usuarioSeleccionado:any = this.usuarios[0];
+
+  seleccionarUsuario(usuario:any){
+    this.usuarioSeleccionado = usuario;
   }
+
 }

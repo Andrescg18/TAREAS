@@ -1,36 +1,35 @@
-:host {
-  display: block;
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #1b0033, #070012);
-  color: white;
+.header{
+text-align:center;
+background:linear-gradient(180deg,#ffffff,#5c5a5f);
+padding:40px;
+border-radius:20px;
+width:80%;
+margin:30px auto;
 }
 
-/* tarjetas de usuario */
-.user-card {
-  background: rgba(255, 255, 255, 0.12);
-  cursor: pointer;
-  transition: all 0.25s ease;
-  backdrop-filter: blur(6px);
+.logo{
+width:80px;
+margin-bottom:10px;
 }
 
-.user-card:hover {
-  background: rgba(255, 255, 255, 0.2);
-  transform: translateX(4px);
+.contenedor{
+display:flex;
+gap:60px;
+width:80%;
+margin:auto;
 }
 
-.user-card.active {
-  background: linear-gradient(135deg, #7b2cff, #a855f7);
+.usuarios{
+width:300px;
+display:flex;
+flex-direction:column;
+gap:15px;
 }
 
-/* avatar */
-.avatar {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-/* texto morado */
-.text-purple {
-  color: #e9d5ff;
+.contenido{
+flex:1;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
 }

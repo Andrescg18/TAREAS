@@ -1,27 +1,37 @@
-<app-header></app-header>
+<header class="header">
 
-<div class="container-fluid mt-4">
-  <div class="row">
+<img src="icono.png" class="logo">
 
-  
-    <aside class="col-md-3 col-lg-2">
-      <div
-        class="user-card mb-3 p-3 rounded-4 d-flex align-items-center gap-3"
-        *ngFor="let user of usuarios"
-        (click)="seleccionarUsuario(user)"
-        [class.active]="usuarioSeleccionado?.nombre === user.nombre"
-      >
-        <img [src]="user.avatar" class="avatar" />
-        <span>{{ user.nombre }}</span>
-      </div>
-    </aside>
+<h1>MIS TAREITAS</h1>
+<p>Administrador de Tareas</p>
 
-  
-    <main class="col-md-9 col-lg-10 d-flex align-items-center">
-      <h2 class="display-5 fw-bold text-purple" *ngIf="usuarioSeleccionado">
-        {{ usuarioSeleccionado.nombre }}
-      </h2>
-    </main>
+</header>
 
-  </div>
+<div class="contenedor">
+
+<div class="usuarios">
+
+@for (usuario of usuarios; track usuario.id){
+
+<app-usuario
+[usuario]="usuario"
+(seleccionar)="seleccionarUsuario($event)">
+</app-usuario>
+
+}
+
+</div>
+
+<div class="contenido">
+
+<img [src]="usuarioSeleccionado?.avatar" class="avatar-grande">
+
+<h1>{{usuarioSeleccionado?.nombre}}</h1>
+
+<app-tareas
+[tareas]="usuarioSeleccionado?.tareas">
+</app-tareas>
+
+</div>
+
 </div>
